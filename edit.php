@@ -33,7 +33,7 @@
 <body>
     <div class="container">
     <h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span> แก้ไขข้อมูล</h1>
-    <form method="post" action="edit.php?id=<?=$id?>">
+    <form method="post" action="edit.php?id=<?=$Id?>">
         <div class="form-group">
             <label>ชื่อ</label>
             <input value="<?=$row["Firstname"]?>" type="text" class="form-control" id="Firstname" placeholder="Firstname">

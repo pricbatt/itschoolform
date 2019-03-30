@@ -3,11 +3,13 @@
     $username = "mfu";
     $password = "Mfuworkshop@2019";
     $dbname = "mfuworkshop";
-    /*$conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli($servername, $username, $password, $dbname);
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
-    } 
-    echo "Connected successfully";*/
+    }
+
+    $sql = "SELECT * FROM Student";
+    $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,6 +36,7 @@
                 <colgroup>
                     <col class="col-xs-1">
                     <col class="col-xs-7">
+                    <col class="col-xs-2">
                 </colgroup>
                 <thead> 
                     <tr> 
@@ -43,11 +46,20 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php 
+                        $index = 1;
+                        while($row = $result->fetch_assoc())
+                        { 
+                    ?>
                     <tr>
-                        <td></td>
-                        <td></td>
+                        <td><?=$i?></td>
+                        <td><?=$row["Firstname"]?> <?=$row["Lastname"]?></td>
                         <td></td>
                     </tr>
+                    <?php
+                        $index++; 
+                        } 
+                    ?>
                 </tbody>
             </table>
         </div>

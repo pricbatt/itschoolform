@@ -1,5 +1,9 @@
 <?php
     require 'connection_database.php';
+    $Id = $_GET["id"];
+    $sql = "SELECT * FROM Student WHERE Id = $Id ";
+    $result = $conn->query($sql);
+    $row = mysqli_fetch_assoc($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,16 +28,19 @@
     <form>
         <div class="form-group">
             <label>ชื่อ</label>
-            <input type="text" class="form-control" id="Firstname" placeholder="Firstname">
+            <input value="<?=$row["Firstname"]?>" type="text" class="form-control" id="Firstname" placeholder="Firstname">
         </div>
         <div class="form-group">
             <label>นามสกุล</label>
-            <input type="text" class="form-control" id="Lastname" placeholder="Lastname">
+            <input value="<?=$row["Lastname"]?>" type="text" class="form-control" id="Lastname" placeholder="Lastname">
         </div>
         <button type="submit" class="btn btn-primary">
             <span class="glyphicon glyphicon-floppy-disk"></span>
             บันทึกข้อมูล
         </button>
+        <a href="index.php" class="btn btn-default">
+            <span class="glyphicon glyphicon-home" aria-hidden="true"></span> หน้าหลัก
+        </a>
     </form>
     </div>
 

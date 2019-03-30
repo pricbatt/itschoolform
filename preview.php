@@ -2,7 +2,7 @@
 ini_set('display_errors', 'On');
 // Require composer autoload
 require_once __DIR__ . '/vendor/autoload.php';
-$mpdf = new \Mpdf\Mpdf();
+$mpdf = new \Mpdf\Mpdf(['tempDir' => __DIR__ . '/temps']);
 
 $pagecount = $mpdf->SetSourceFile("/documents/MFU-P09_000132 - Original.pdf");
 for ($i=1; $i<=$pagecount; $i++) {

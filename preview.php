@@ -4,13 +4,13 @@ require 'connection_database.php';
 $Id = $_GET["id"];
 // Require composer autoload
 require_once __DIR__ . '/vendor/autoload.php';
-$mpdf = new \Mpdf\Mpdf(['tempDir' => __DIR__ . '/temps']);
 $defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
 $fontDirs = $defaultConfig['fontDir'];
 
 $defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();
 $fontData = $defaultFontConfig['fontdata'];
 $mpdf = new \Mpdf\Mpdf([
+    'tempDir' => __DIR__ . '/temps',
     'fontDir' => array_merge($fontDirs, [
         __DIR__ . '/fonts',
     ]),

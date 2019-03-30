@@ -59,7 +59,7 @@
                         <td><?=$row["Firstname"]?> <?=$row["Lastname"]?></td>
                         <td style="text-align: center;">
                             <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> แก้ไข</button>
-                            <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> แก้ไข</button>
+                            <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> ลบข้อมูล</button>
                         </td>
                     </tr>
                     <?php

@@ -5,7 +5,8 @@
     if(isset($_POST["btnSubmit"])){
         $Firstname = $_POST["Firstname"];
         $Lastname = $_POST["Lastname"];
-        $sql = "UPDATE Student SET Firstname = '$Firstname', Lastname='$Lastname' WHERE Id = $Id ";
+        $Signatue = $_POST["sign"];
+        $sql = "UPDATE Student SET Firstname = '$Firstname', Lastname='$Lastname', Signature = '$Signatue' WHERE Id = $Id ";
         $conn->query($sql);
     }
 
@@ -29,6 +30,11 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+    #signature-pad{
+        border: 1px solid #cccc;
+    }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -43,7 +49,6 @@
             <input value="<?=$row["Lastname"]?>" type="text" class="form-control" name="Lastname" id="Lastname" placeholder="Lastname">
         </div>
         <canvas id="signature-pad" class="signature-pad" width="300px" height="200px"></canvas><br/>
-        <input type='button' id='click' value='preview'> <input type='submit' name="btnSubmit" id="btnSubmit" value='บันทึกข้อมูล'><br/>
         <textarea id='output'><?=$course->sign?></textarea><br/>
         <img src='<?=$course->sign?>' id='sign_prev' />
         <input type="hidden" name="sign" id="sign">

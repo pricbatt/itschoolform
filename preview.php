@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', 'On');
 // Require composer autoload
 require_once __DIR__ . '/vendor/autoload.php';
 $mpdf = new \Mpdf\Mpdf();

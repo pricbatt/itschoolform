@@ -42,6 +42,11 @@
             <label>นามสกุล</label>
             <input value="<?=$row["Lastname"]?>" type="text" class="form-control" name="Lastname" id="Lastname" placeholder="Lastname">
         </div>
+        <canvas id="signature-pad" class="signature-pad" width="300px" height="200px"></canvas><br/>
+        <input type='button' id='click' value='preview'> <input type='submit' name="btnSubmit" id="btnSubmit" value='บันทึกข้อมูล'><br/>
+        <textarea id='output'><?=$course->sign?></textarea><br/>
+        <img src='<?=$course->sign?>' id='sign_prev' />
+        <input type="hidden" name="sign" id="sign">
         <button type="submit" class="btn btn-primary" id="btnSubmit" name="btnSubmit">
             <span class="glyphicon glyphicon-floppy-disk"></span>
             บันทึกข้อมูล
@@ -56,5 +61,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        var signaturePad = new SignaturePad(document.getElementById('signature-pad'));
+        $('#click').click(function(){
+        var data = signaturePad.toDataURL('image/png');
+        $('#output').val(data);
+        $('#sign').val(data);
+
+        $("#sign_prev").show();
+        $("#sign_prev").attr("src",data);
+        // Open image in the browser
+        //window.open(data);
+        });
+    });
+    </script>
 </body>
 </html>

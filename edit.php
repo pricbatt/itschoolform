@@ -14,7 +14,7 @@
         $sql = "UPDATE Student SET Firstname = '$Firstname', Lastname='$Lastname', 
                 Signature = '$Signatue', 
                 Comment='$Comment',
-                Approned=$Approved
+                Approved=$Approved
                 WHERE Id = $Id ";
         $conn->query($sql);
     }

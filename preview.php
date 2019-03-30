@@ -4,7 +4,7 @@ ini_set('display_errors', 'On');
 require_once __DIR__ . '/vendor/autoload.php';
 $mpdf = new \Mpdf\Mpdf(['tempDir' => __DIR__ . '/temps']);
 
-$pagecount = $mpdf->SetSourceFile("documents/MFU-P09_000132 - Original.pdf");
+$pagecount = $mpdf->SetSourceFile("documents/C7.pdf");
 for ($i=1; $i<=$pagecount; $i++) {
     $mpdf->AddPage();
     $import_page = $mpdf->ImportPage($i);

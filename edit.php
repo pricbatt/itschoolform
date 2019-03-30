@@ -7,7 +7,15 @@
         $Lastname = $_POST["Lastname"];
         $Signatue = $_POST["sign"];
         $Comment = $_POST["Comment"];
-        $sql = "UPDATE Student SET Firstname = '$Firstname', Lastname='$Lastname', Signature = '$Signatue', Comment='$Comment' WHERE Id = $Id ";
+        $Approved = 0;
+        if (isset($_POST['Approved'])) {
+            $Approved = 1;
+        }
+        $sql = "UPDATE Student SET Firstname = '$Firstname', Lastname='$Lastname', 
+                Signature = '$Signatue', 
+                Comment='$Comment',
+                Approned=$Approved
+                WHERE Id = $Id ";
         $conn->query($sql);
     }
 
@@ -48,6 +56,11 @@
         <div class="form-group">
             <label>นามสกุล</label>
             <input value="<?=$row["Lastname"]?>" type="text" class="form-control" name="Lastname" id="Lastname" placeholder="Lastname">
+        </div>
+        <div class="checkbox">
+            <label>
+                <input value="1" <?php if($row["Approved"]==1) { echo "checked='checked'"; } ?> type="checkbox" name="Approved" id="Approved"> อนุมัติ
+            </label>
         </div>
         <div class="form-group">
             <label>ความเห็น</label>

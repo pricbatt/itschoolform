@@ -58,7 +58,9 @@
                         <td><?=$index?></td>
                         <td><?=$row["Firstname"]?> <?=$row["Lastname"]?></td>
                         <td style="text-align: center;">
-                            <button onclick="edit.php?id=<?=$row["Id"]?>" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> แก้ไข</button>
+                            <a href="edit.php<?=$row["Id"]?>" class="btn btn-primary">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> แก้ไข
+                            </a>
                             <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> ลบข้อมูล</button>
                         </td>
                     </tr>

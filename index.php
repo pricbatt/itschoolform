@@ -58,10 +58,12 @@
                         <td><?=$index?></td>
                         <td><?=$row["Firstname"]?> <?=$row["Lastname"]?></td>
                         <td style="text-align: center;">
-                            <a href="edit.php<?=$row["Id"]?>" class="btn btn-primary">
+                            <a href="edit.php?id=<?=$row["Id"]?>" class="btn btn-primary">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> แก้ไข
                             </a>
-                            <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> ลบข้อมูล</button>
+                            <a onclick="return confirm('คุณต้องการลบข้อมูล <?=$row["Firstname"]?> <?=$row["Lastname"]?> ใช่หรือไม่?');" href="index.php?id=<?=$row["Id"]?>&mode=delete" class="btn btn-danger">
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> ลบข้อมูล
+                            </a>
                         </td>
                     </tr>
                     <?php

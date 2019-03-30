@@ -4,7 +4,7 @@ require 'connection_database.php';
 $Id = $_GET["id"];
 // Require composer autoload
 require_once __DIR__ . '/vendor/autoload.php';
-$mpdf = new \Mpdf\Mpdf(['tempDir' => __DIR__ . '/temps','mode' => 'utf-8']);
+$mpdf = new \Mpdf\Mpdf(['tempDir' => __DIR__ . '/temps']);
 $defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
 $fontDirs = $defaultConfig['fontDir'];
 

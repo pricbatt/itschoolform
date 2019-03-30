@@ -61,7 +61,7 @@
         <a href="index.php" class="btn btn-default">
             <span class="glyphicon glyphicon-home" aria-hidden="true"></span> หน้าหลัก
         </a>
-        <a href="preview.php?id=<?=$Id?>" class="btn btn-default">
+        <a href="preview.php?id=<?=$Id?>" target="_blank" class="btn btn-default">
             <span class="glyphicon glyphicon-home" aria-hidden="true"></span> หน้าหลัก
         </a>
     </form>

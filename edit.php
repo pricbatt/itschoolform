@@ -74,14 +74,25 @@
     $(document).ready(function() {
         var signaturePad = new SignaturePad(document.getElementById('signature-pad'));
         $('#click').click(function(){
-        var data = signaturePad.toDataURL('image/png');
-        $('#output').val(data);
-        $('#sign').val(data);
+            var data = signaturePad.toDataURL('image/png');
+            $('#output').val(data);
+            $('#sign').val(data);
 
-        $("#sign_prev").show();
-        $("#sign_prev").attr("src",data);
-        // Open image in the browser
-        //window.open(data);
+            $("#sign_prev").show();
+            $("#sign_prev").attr("src",data);
+            // Open image in the browser
+            //window.open(data);
+        });
+
+        $('#btnSubmit').click(function(){
+            var data = signaturePad.toDataURL('image/png');
+            //$('#output').val(data);
+            $('#sign').val(data);
+
+            //$("#sign_prev").show();
+            //$("#sign_prev").attr("src",data);
+            // Open image in the browser
+            //window.open(data);
         });
     });
     </script>

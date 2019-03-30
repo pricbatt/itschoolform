@@ -20,6 +20,7 @@
 </head>
 <body>
     <div class="container">
+    <h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span> แก้ไขข้อมูล</h1>
     <form>
         <div class="form-group">
             <label>ชื่อ</label>
@@ -35,7 +36,7 @@
         </button>
     </form>
     </div>
-    
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

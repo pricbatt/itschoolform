@@ -47,7 +47,7 @@ table{
 </style>
 <table style="width:100%;" id="sign">
     <tr>
-        <td><img src="documents/doc1.png" /></td>
+        <td><img src="documents/<?=$row["Filename"]?>" /></td>
     </tr>
 </table>
 <table style="width:100%;" id="tbfoot">

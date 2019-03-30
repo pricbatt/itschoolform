@@ -43,7 +43,7 @@
                     <tr> 
                         <th>ลำดับ</th>
                         <th>ชื่อ - นามสกุล</th>
-                        <th>
+                        <th align="center">
                             <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> เพิ่มข้อมูลใหม่</button>
                         </th>
                     </tr>
@@ -57,9 +57,9 @@
                     <tr>
                         <td><?=$index?></td>
                         <td><?=$row["Firstname"]?> <?=$row["Lastname"]?></td>
-                        <td>
-                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> แก้ไข</button>
-                        <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> แก้ไข</button>
+                        <td align="center">
+                            <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> แก้ไข</button>
+                            <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> แก้ไข</button>
                         </td>
                     </tr>
                     <?php

@@ -49,7 +49,7 @@
             <input value="<?=$row["Lastname"]?>" type="text" class="form-control" name="Lastname" id="Lastname" placeholder="Lastname">
         </div>
         <canvas id="signature-pad" class="signature-pad" width="300px" height="200px"></canvas><br/>
-        <textarea id='output'><?=$result["Signature"]?></textarea><br/>
+        <textarea id='output'><?=$row["Signature"]?></textarea><br/>
         <input type="hidden" name="sign" id="sign">
         <button type='button' class="btn btn-default" id='click'>
             Preview

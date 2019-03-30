@@ -10,6 +10,21 @@
     <title>แก้ไขข้อมูล</title>
 </head>
 <body>
-    TEST
+    <div class="container">
+    <form>
+        <div class="form-group">
+            <label>ชื่อ</label>
+            <input type="text" class="form-control" id="Firstname" placeholder="Firstname">
+        </div>
+        <div class="form-group">
+            <label>นามสกุล</label>
+            <input type="text" class="form-control" id="Lastname" placeholder="Lastname">
+        </div>
+        <button type="submit" class="btn btn-primary">
+            <span class="glyphicon glyphicon-floppy-disk"></span>
+            บันทึกข้อมูล
+        </button>
+    </form>
+    </div>
 </body>
 </html>

@@ -53,7 +53,7 @@
                         { 
                     ?>
                     <tr>
-                        <td><?=$i?></td>
+                        <td><?=$index?></td>
                         <td><?=$row["Firstname"]?> <?=$row["Lastname"]?></td>
                         <td></td>
                     </tr>

@@ -62,7 +62,7 @@
             <span class="glyphicon glyphicon-home" aria-hidden="true"></span> หน้าหลัก
         </a>
     </form>
-    <img src='<?=$course->sign?>' id='sign_prev' />
+    <img src='<?=$row["Signature"]?>' id='sign_prev' />
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

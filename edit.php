@@ -6,7 +6,8 @@
         $Firstname = $_POST["Firstname"];
         $Lastname = $_POST["Lastname"];
         $Signatue = $_POST["sign"];
-        $sql = "UPDATE Student SET Firstname = '$Firstname', Lastname='$Lastname', Signature = '$Signatue' WHERE Id = $Id ";
+        $Comment = $_POST["Comment"];
+        $sql = "UPDATE Student SET Firstname = '$Firstname', Lastname='$Lastname', Signature = '$Signatue', Comment='$Comment' WHERE Id = $Id ";
         $conn->query($sql);
     }
 
@@ -48,6 +49,10 @@
             <label>นามสกุล</label>
             <input value="<?=$row["Lastname"]?>" type="text" class="form-control" name="Lastname" id="Lastname" placeholder="Lastname">
         </div>
+        <div class="form-group">
+            <label>ความเห็น</label>
+            <input value="<?=$row["Comment"]?>" type="text" class="form-control" name="Comment" id="Comment" placeholder="Comment">
+        </div>
         <canvas id="signature-pad" class="signature-pad" width="300px" height="200px"></canvas><br/>
         <textarea id='output'><?=$row["Signature"]?></textarea><br/>
         <input type="hidden" name="sign" id="sign">
@@ -61,9 +66,7 @@
         <a href="index.php" class="btn btn-default">
             <span class="glyphicon glyphicon-home" aria-hidden="true"></span> หน้าหลัก
         </a>
-        <a href="preview.php?id=<?=$Id?>" target="_blank" class="btn btn-default">
-            <span class="glyphicon glyphicon-home" aria-hidden="true"></span> หน้าหลัก
-        </a>
+        <a href="preview.php?id=<?=$Id?>" target="_blank" class="btn btn-default">PDF</a>
     </form>
     <img src='<?=$row["Signature"]?>' id='sign_prev' />
     </div>

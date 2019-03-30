@@ -50,8 +50,10 @@
         </div>
         <canvas id="signature-pad" class="signature-pad" width="300px" height="200px"></canvas><br/>
         <textarea id='output'><?=$course->sign?></textarea><br/>
-        <img src='<?=$course->sign?>' id='sign_prev' />
         <input type="hidden" name="sign" id="sign">
+        <button type='button' class="btn btn-default" id='click'>
+            Preview
+        </button> 
         <button type="submit" class="btn btn-primary" id="btnSubmit" name="btnSubmit">
             <span class="glyphicon glyphicon-floppy-disk"></span>
             บันทึกข้อมูล
@@ -60,6 +62,7 @@
             <span class="glyphicon glyphicon-home" aria-hidden="true"></span> หน้าหลัก
         </a>
     </form>
+    <img src='<?=$course->sign?>' id='sign_prev' />
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

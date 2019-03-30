@@ -36,11 +36,11 @@
     <form method="post" action="edit.php?id=<?=$Id?>">
         <div class="form-group">
             <label>ชื่อ</label>
-            <input value="<?=$row["Firstname"]?>" type="text" class="form-control" id="Firstname" placeholder="Firstname">
+            <input value="<?=$row["Firstname"]?>" type="text" class="form-control" name="Firstname" id="Firstname" placeholder="Firstname">
         </div>
         <div class="form-group">
             <label>นามสกุล</label>
-            <input value="<?=$row["Lastname"]?>" type="text" class="form-control" id="Lastname" placeholder="Lastname">
+            <input value="<?=$row["Lastname"]?>" type="text" class="form-control" name="Lastname" id="Lastname" placeholder="Lastname">
         </div>
         <button type="submit" class="btn btn-primary" id="btnSubmit" name="btnSubmit">
             <span class="glyphicon glyphicon-floppy-disk"></span>

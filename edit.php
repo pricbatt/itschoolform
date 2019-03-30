@@ -1,6 +1,14 @@
 <?php
     require 'connection_database.php';
     $Id = $_GET["id"];
+
+    if(isset($_POST["btnSubmit"])){
+        $Firstname = $_POST["Firstname"];
+        $Lastname = $_POST["Lastname"];
+        $sql = "UPDATE Student SET Firstname = '$Firstname', Lastname='$Lastname' WHERE Id = $Id ";
+        $conn->query($sql);
+    }
+
     $sql = "SELECT * FROM Student WHERE Id = $Id ";
     $result = $conn->query($sql);
     $row = mysqli_fetch_assoc($result);
@@ -25,7 +33,7 @@
 <body>
     <div class="container">
     <h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span> แก้ไขข้อมูล</h1>
-    <form>
+    <form method="post" action="edit.php?id=<?=$id?>">
         <div class="form-group">
             <label>ชื่อ</label>
             <input value="<?=$row["Firstname"]?>" type="text" class="form-control" id="Firstname" placeholder="Firstname">
@@ -34,7 +42,7 @@
             <label>นามสกุล</label>
             <input value="<?=$row["Lastname"]?>" type="text" class="form-control" id="Lastname" placeholder="Lastname">
         </div>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-primary" id="btnSubmit" name="btnSubmit">
             <span class="glyphicon glyphicon-floppy-disk"></span>
             บันทึกข้อมูล
         </button>

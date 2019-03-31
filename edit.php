@@ -8,13 +8,15 @@
         $Signatue = $_POST["sign"];
         $Comment = $_POST["Comment"];
         $Approved = 0;
+        $Filename = $_POST["Filename"];
         if (isset($_POST['Approved'])) {
             $Approved = 1;
         }
         $sql = "UPDATE Student SET Firstname = '$Firstname', Lastname='$Lastname', 
                 Signature = '$Signatue', 
                 Comment='$Comment',
-                Approved=$Approved
+                Approved=$Approved,
+                Filename = '$Filename'
                 WHERE Id = $Id ";
         $conn->query($sql);
     }
@@ -56,6 +58,10 @@
         <div class="form-group">
             <label>นามสกุล</label>
             <input value="<?=$row["Lastname"]?>" type="text" class="form-control" name="Lastname" id="Lastname" placeholder="Lastname">
+        </div>
+        <div class="form-group">
+            <label>เอกสาร</label>
+            <input value="<?=$row["Filename"]?>" type="text" class="form-control" name="Filename" id="Filename" placeholder="Filename">
         </div>
         <div class="checkbox">
             <label>

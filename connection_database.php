@@ -5,7 +5,7 @@
     // $dbname = "mfuworkshop";
     $servername = "localhost";
     $username = "root";
-    $password = "root";
+    $password = "1150";
     $dbname = "mfuworkshop";
     $conn = new mysqli($servername, $username, $password, $dbname);
     if ($conn->connect_error) {

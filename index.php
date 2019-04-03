@@ -1,7 +1,32 @@
 <?php
     require 'connection_database.php';
-    $sql = "SELECT * FROM Student";
+    $sql = "SELECT * FROM Student ORDER BY id DESC ";
     $result = $conn->query($sql);
+?><?php
+header('Content-Type: text/html; charset=utf-8');
+
+  session_start();
+  if($_SESSION['UserID'] == "")
+  {
+    header('Location: index.php');
+   // header("Refresh:0; url=index.php");
+    exit();}
+  // }if($_SESSION["Status"] == "1")
+  //       {
+  //       header("location:welcome1.php");
+  //         exit();
+  //       }
+       
+
+
+  
+  require 'connection_database.php';
+
+  $strSQL = "SELECT * FROM member WHERE UserID = '".$_SESSION['UserID']."' ";
+  mysqli_query($conn,"SET NAMES utf8");
+  $objQuery = mysqli_query($conn,$strSQL);
+  $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,22 +47,28 @@
     <![endif]-->
 </head>
 <body>
+<div class="row">
+
     <div class="container">
-        <h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span> รายชื่อนักศึกษา</h1>
+        <h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span> เอกสารรอการจ่ายงานนะจ๊ะ</h1><?php echo $objResult["name"];?> <hr>
+        <div><a href="add.php" class="btn btn-danger">เพิ่มข้อมูลใหม่</a></div><br>
         <div class="table-responsive">
             <table class="table table-bordered table-striped">
                 <colgroup>
                     <col class="col-xs-1">
-                    <col class="col-xs-7">
-                    <col class="col-xs-2">
+                    <col class="col-xs-4">
+                    <col class="col-xs-5">
                 </colgroup>
                 <thead> 
                     <tr> 
                         <th>ลำดับ</th>
-                        <th>ชื่อ - นามสกุล</th>
-                        <th style="text-align: center;">
-                            <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> เพิ่มข้อมูลใหม่</button>
+                        <th>เลขที่เอกสาร</th>
+                        <th>ชื่อ</th>
+                        <th>วันที่</th>
+                        <th style="text-align: center;">อนุมัติ
+                            <!-- <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> เพิ่มข้อมูลใหม่</button> -->
                         </th>
+                        <th>View</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,15 +79,18 @@
                     ?>
                     <tr>
                         <td><?=$index?></td>
+                        <td><?=$row["docname"]?></td>
                         <td><?=$row["Firstname"]?> <?=$row["Lastname"]?></td>
+                        <th><?=$row["created"]?></th>
                         <td style="text-align: center;">
                             <a href="edit.php?id=<?=$row["Id"]?>" class="btn btn-primary">
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> แก้ไข
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> อนุมัติ
                             </a>
-                            <a onclick="return confirm('คุณต้องการลบข้อมูล <?=$row["Firstname"]?> <?=$row["Lastname"]?> ใช่หรือไม่?');" href="index.php?id=<?=$row["Id"]?>&mode=delete" class="btn btn-danger">
+                            <!-- <a onclick="return confirm('คุณต้องการลบข้อมูล <?=$row["Firstname"]?> <?=$row["Lastname"]?> ใช่หรือไม่?');" href="index.php?id=<?=$row["Id"]?>&mode=delete" class="btn btn-danger">
                                 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> ลบข้อมูล
-                            </a>
+                            </a> -->
                         </td>
+                        <td><a href="preview.php?id=<?=$row["Id"]?>" target="_blank" class="btn btn-primary">PDF</a></td>
                     </tr>
                     <?php
                         $index++; 
@@ -66,7 +100,7 @@
             </table>
         </div>
     </div>
-    
+</div>   
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

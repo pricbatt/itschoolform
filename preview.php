@@ -36,7 +36,7 @@ table{
     font-size: 20pt;
 }
 #tbfoot{
-    margin-top:250px;
+    margin-top:80px;
 }
 
 #tbfoot2{
@@ -45,7 +45,7 @@ table{
     text-align:center;
 }
 </style>
-<table style="width:100%;" id="sign">
+<table style="width:70%;" id="sign">
     <tr>
         <td><img src="documents/<?=$row["Filename"]?>" /></td>
     </tr>
@@ -63,6 +63,9 @@ table{
                         <input type="checkbox" <?php if($row["Approved"]==1) { echo "checked='checked'"; } ?> > อนุมัติ
                         <input type="checkbox" <?php if($row["Approved"]==0) { echo "checked='checked'"; } ?> > ไม่อนุมัติ
                     </td>
+                </tr>
+                <tr>                     
+                    <td><?=$row["toname"]?></td>
                 </tr>
                 <tr>
                     <td><?=$row["Comment"]?></td>

@@ -1,7 +1,11 @@
 <?php
+    // $servername = "localhost";
+    // $username = "mfu";
+    // $password = "Mfuworkshop@2019";
+    // $dbname = "mfuworkshop";
     $servername = "localhost";
-    $username = "mfu";
-    $password = "Mfuworkshop@2019";
+    $username = "root";
+    $password = "root";
     $dbname = "mfuworkshop";
     $conn = new mysqli($servername, $username, $password, $dbname);
     if ($conn->connect_error) {

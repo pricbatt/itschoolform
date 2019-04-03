@@ -9,6 +9,7 @@
         $Comment = $_POST["Comment"];
         $Approved = 0;
         $Filename = $_POST["Filename"];
+        $toname = $_POST["toname"];
         if (isset($_POST['Approved'])) {
             $Approved = 1;
         }
@@ -16,6 +17,7 @@
                 Signature = '$Signatue', 
                 Comment='$Comment',
                 Approved=$Approved,
+                toname='$toname',
                 Filename = '$Filename'
                 WHERE Id = $Id ";
         $conn->query($sql);
@@ -69,6 +71,14 @@
             </label>
         </div>
         <div class="form-group">
+            <label>มอบหมาย</label>
+           
+            <select class="form-control" name="toname">
+            <option value="อาจารย์ ดร. วรศักดิ์ เรืองศิรรักษ์">อาจารย์ ดร. วรศักดิ์ เรืองศิรรักษ์</option>           
+            </select>                                        
+                                   
+        </div>
+        <div class="form-group">
             <label>ความเห็น</label>
             <input value="<?=$row["Comment"]?>" type="text" class="form-control" name="Comment" id="Comment" placeholder="Comment">
         </div>
@@ -82,7 +92,7 @@
             <span class="glyphicon glyphicon-floppy-disk"></span>
             บันทึกข้อมูล
         </button>
-        <a href="index.php" class="btn btn-default">
+        <a href="myindex.php" class="btn btn-default">
             <span class="glyphicon glyphicon-home" aria-hidden="true"></span> หน้าหลัก
         </a>
         <a href="preview.php?id=<?=$Id?>" target="_blank" class="btn btn-default">PDF</a>

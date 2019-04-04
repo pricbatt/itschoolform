@@ -40,14 +40,15 @@ header('Content-Type: application/json');
   move_uploaded_file($_FILES["filUpload"]["tmp_name"],"documents/".$_FILES["filUpload"]["name"]);
 require 'connection_database.php';
         $name = $_POST["Firstname"];
-        
+        $id = $_POST["id"];
         $docname = $_POST["docname"];
         $topic = $_POST["topic"];     
+        $type = $_POST["type"]; 
         $pdf=trim($_FILES["filUpload"]["name"]);
         $created = date('Y-m-d H:i:s');
 
-$sql = "INSERT INTO form (Firstname,Filename,docname,topic,created) VALUES ";
-$sql .= "('{$name}','{$pdf}','{$docname}','{$topic}','{$created}')";
+$sql = "INSERT INTO form (Firstname,Filename,docname,topic,created,uid,type) VALUES ";
+$sql .= "('{$name}','{$pdf}','{$docname}','{$topic}','{$created}','{$id}','{$type}')";
 
 $query = mysqli_query($conn,$sql);
 

@@ -64,7 +64,7 @@ header('Content-Type: text/html; charset=utf-8');
                         <th>ลำดับ</th>
                         <th>เลขที่เอกสาร</th>
                         <th>เรื่อง</th>
-                        <th>ผู้สร้างเอกสาร</th>
+                        <th>โดย</th>
                         <th>ชื่อผู้รับผิดชอบ</th>
                         <th>วันที่</th>
                         <th>สถานะ</th>
@@ -94,7 +94,7 @@ header('Content-Type: text/html; charset=utf-8');
 
                                 elseif($row["Approved"] == '1'){
 
-                                    echo "<td><center><a>เกษียณเอกสารแล้ว</a></center></td>";}
+                                    echo "<td><center><a>เกษียนเอกสารแล้ว</a></center></td>";}
                                 elseif($row["Approved"] == '2'){
 
                                     echo "<td><center><a>ไม่อนุมัติ</a></center></td>";}
@@ -109,15 +109,15 @@ header('Content-Type: text/html; charset=utf-8');
                      ?>
                       
                         <td style="text-align: center;">
-                            <a href="edit_user.php?id=<?=$row["Id"]?>" class="btn btn-primary">
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> รายละเอียด
+                            <a href="edit_user.php?id=<?=$row["Id"]?>" class="btn btn-success">
+                                <span class="glyphicon glyphicon-book" aria-hidden="true"></span> รายละเอียด
                             </a>
                             <!-- <a onclick="return confirm('คุณต้องการลบข้อมูล <?=$row["Firstname"]?> <?=$row["Lastname"]?> ใช่หรือไม่?');" href="index.php?id=<?=$row["Id"]?>&mode=delete" class="btn btn-danger">
                                 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> ลบข้อมูล
                             </a> -->
                         </td>
                         <td><a href="preview.php?id=<?=$row["Id"]?>" target="_blank" class="btn btn-primary">PDF</a></td>
-                        <td><a href="delete.php?id=<?=$row["Id"]?>" onclick=\"return confirm('Do you want to delete this record? !!!')\ class='btn btn-danger' role='button'">ลบ</a></td>
+                        <td><a href="delete.php?id=<?=$row["Id"]?>" onClick="return confirm('คุณต้องการที่จะลบข้อมูลนี้หรือไม่ ?');" class='btn btn-danger' role='button'">ลบ</a></td>
                     </tr>
                     <?php
                         $index++; 

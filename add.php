@@ -54,12 +54,26 @@ header('Content-Type: text/html; charset=utf-8');
     
         <div class="form-group">
             <label>ชื่อ - สกุล</label>
-            <input value="<?php echo $objResult["name"];?>" type="text" class="form-control" name="Firstname" id="Firstname" placeholder="<?php echo $objResult["name"];?>" readonly>
+            <input value="อาจารย์ ดร.ธีรวิศิฏฐ์ เลาหะเพ็ญแสง" type="text" class="form-control" name="Firstname" id="Firstname" placeholder="อาจารย์ ดร.ธีรวิศิฏฐ์ เลาหะเพ็ญแสง" readonly>
         </div>
  
         <div class="form-group">
             <label>เลขหนังสือ</label>
             <input  type="text" class="form-control" name="docname" id="docname" placeholder="เลขหนังสือ">
+        </div>
+        <div class="form-group">
+            <label>ชนิดหนังสือ</label>
+            <!-- test -->
+            
+            <select class="form-control" name="type">
+			<option value=""><-- ชนิดของหนังสือ --></option>
+			<option value="บันทึกข้อความ">บันทึกข้อความ</option>
+		  </select>
+            <!-- test -->
+            <!-- <select class="form-control" name="toname">
+            <option value="อาจารย์ ดร. วรศักดิ์ เรืองศิรรักษ์">อาจารย์ ดร. วรศักดิ์ เรืองศิรรักษ์</option>           
+            </select>                                         -->
+                                   
         </div>
         <div class="form-group">
             <label>เรื่อง</label>
@@ -69,7 +83,7 @@ header('Content-Type: text/html; charset=utf-8');
             <label>เอกสาร</label>
             <input type="file" name="filUpload">
         </div>
-        
+        <textarea style="display:none;"type="hidden" name="id" cols="50" rows="5 placeholder="Enter ..."><?php echo $objResult['UserID'];?></textarea></td>
        
         
      

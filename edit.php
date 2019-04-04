@@ -63,12 +63,15 @@
         </div>
         <div class="form-group">
             <label>เอกสาร</label>
-            <input value="<?=$row["Filename"]?>" type="text" class="form-control" name="Filename" id="Filename" placeholder="Filename">
+            <input value="<?=$row["Filename"]?>" type="hidden" class="form-control" name="Filename" id="Filename" placeholder="Filename">
+            <a href="documents/<?php echo $row["Filename"]; ?>" target="_blank"><?php echo $row["Filename"];?></a>
         </div>
         <div class="checkbox">
             <label>
                 <input value="1" <?php if($row["Approved"]==1) { echo "checked='checked'"; } ?> type="checkbox" name="Approved" id="Approved"> อนุมัติ
+                
             </label>
+            <label> <input value="2" <?php if($row["Approved"]==2) { echo "checked='checked'"; } ?> type="checkbox" name="Approved" id="Approved"> ไม่อนุมัติ</label>
         </div>
         <div class="form-group">
             <label>มอบหมาย</label>
@@ -83,21 +86,23 @@
             <input value="<?=$row["Comment"]?>" type="text" class="form-control" name="Comment" id="Comment" placeholder="Comment">
         </div>
         <canvas id="signature-pad" class="signature-pad" width="300px" height="200px"></canvas><br/>
-        <textarea id='output'><?=$row["Signature"]?></textarea><br/>
+        
         <input type="hidden" name="sign" id="sign">
-        <button type='button' class="btn btn-default" id='click'>
-            Preview
-        </button> 
+     
         <button type="submit" class="btn btn-primary" id="btnSubmit" name="btnSubmit">
             <span class="glyphicon glyphicon-floppy-disk"></span>
             บันทึกข้อมูล
         </button>
-        <a href="myindex.php" class="btn btn-default">
+        <a href="index.php" class="btn btn-default">
             <span class="glyphicon glyphicon-home" aria-hidden="true"></span> หน้าหลัก
         </a>
-        <a href="preview.php?id=<?=$Id?>" target="_blank" class="btn btn-default">PDF</a>
+        <a href="preview.php?id=<?=$Id?>" target="_blank" class="btn btn-default">Preview</a>
     </form>
-    <img src='<?=$row["Signature"]?>' id='sign_prev' />
+    <div class="form-group">
+            <label>ลายเซ็นต์ : </label>
+            <img src='<?=$row["Signature"]?>' id='sign_prev' />
+        </div>
+    
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

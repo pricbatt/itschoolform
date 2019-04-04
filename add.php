@@ -77,8 +77,12 @@ header('Content-Type: text/html; charset=utf-8');
         
      
     
-        
-        <input type="submit" name="Submit" value="บันทึกข้อมูล" class='glyphicon glyphicon-floppy-disk'>
+        <button type="submit" class="btn btn-primary" id="Submit" name="Submit">
+            <span class="glyphicon glyphicon-floppy-disk"></span>
+            บันทึกข้อมูล
+        </button>
+
+        <!-- <input type="submit" name="Submit" value="บันทึกข้อมูล" class='glyphicon glyphicon-floppy-disk'> -->
             
         <a href="myindex.php" class="btn btn-default">
             <span class="glyphicon glyphicon-home" aria-hidden="true"></span> หน้าหลัก

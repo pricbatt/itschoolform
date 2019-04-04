@@ -32,39 +32,39 @@ header('Content-Type: text/html; charset=utf-8');
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Student List</title>
+    <title>Document</title>
      <!-- Bootstrap -->
      <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>    
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>  
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>  
 </head>
 <body>
 <div class="row">
-
-    <div class="container">
+<div class="container">
         <h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span> เอกสารรอการจ่ายงานนะจ๊ะ</h1><?php echo $objResult["name"];?> <hr>
         <div><a href="add.php" class="btn btn-danger">เพิ่มข้อมูลใหม่</a></div><br>
-        <div class="table-responsive">
-            <table class="table table-bordered table-striped">
-                <colgroup>
+<table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%">
+        <colgroup>
+                    <col class="col-xs-1">
                     <col class="col-xs-1">
                     <col class="col-xs-4">
-                    <col class="col-xs-5">
-                </colgroup>
-                <thead> 
+                    <col class="col-xs-2">
+        </colgroup>
+        <thead> 
                     <tr> 
                         <th>ลำดับ</th>
                         <th>เลขที่เอกสาร</th>
+                        <th>เรื่อง</th>
                         <th>ชื่อ</th>
                         <th>วันที่</th>
+                        <th>สถานะ</th>
                         <th style="text-align: center;">อนุมัติ
                             <!-- <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> เพิ่มข้อมูลใหม่</button> -->
                         </th>
@@ -80,8 +80,23 @@ header('Content-Type: text/html; charset=utf-8');
                     <tr>
                         <td><?=$index?></td>
                         <td><?=$row["docname"]?></td>
+                        <td><?=$row["topic"]?></td>
                         <td><?=$row["Firstname"]?> <?=$row["Lastname"]?></td>
                         <th><?=$row["created"]?></th>
+                        <?php
+                                if($row["Approved"] == '0') {
+                                     echo "<td><center>อยู่ระหว่างดำเนินการ</center></td>";}
+
+                                elseif($row["Approved"] == '1'){
+
+                                    echo "<td><center><a>อนุมัติ</a></center></td>";}
+                                else{
+
+                                        echo "<td><center><a>ไม่อนุมัติ</a></center></td>";
+           
+}
+                     ?>
+                      
                         <td style="text-align: center;">
                             <a href="edit.php?id=<?=$row["Id"]?>" class="btn btn-primary">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> อนุมัติ
@@ -98,13 +113,17 @@ header('Content-Type: text/html; charset=utf-8');
                     ?>
                 </tbody>
             </table>
-        </div>
     </div>
-</div>   
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+ </div>
+ 
+          <script>
+// Basic example
+$(document).ready(function () {
+$('#dtBasicExample').DataTable({
+"searching": true // false to disable search (or any other option)
+});
+$('.dataTables_length').addClass('bs-select');
+});
+    </script>
 </body>
 </html>

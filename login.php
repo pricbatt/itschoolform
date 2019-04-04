@@ -15,7 +15,7 @@
 	<section class="container-fluid">
 		<section class="row justify-content-center">
 			<section class="col-12 col-sm-6 col-md-3">
-				<img src="img/itlogo.png" class="bg" >
+			
 					<form class="form-container" name="form1" method="post" action="check_login.php">
 							<h4 class="text-center font-weight-bold">Webboard System</h4>
 							<div class="form-group">								

@@ -6,7 +6,7 @@
   $serverName = "localhost";
   $userName = "root";
   $userPassword = "1150";
-  $dbName = "webboard";
+  $dbName = "mfuworkshop";
     
 
 	$objCon = mysqli_connect($serverName,$userName,$userPassword,$dbName);

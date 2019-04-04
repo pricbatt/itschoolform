@@ -24,7 +24,7 @@ $mpdf = new \Mpdf\Mpdf([
     'default_font' => 'thsarabun'
 ]);
 ob_start();
-$sql = "SELECT * FROM Student WHERE Id = $Id ";
+$sql = "SELECT * FROM form WHERE Id = $Id ";
 $result = $conn->query($sql);
 $row = mysqli_fetch_assoc($result);
 ?>
@@ -60,9 +60,12 @@ table{
                 </tr>
                 <tr>
                     <td>
-                        <input type="checkbox" <?php if($row["Approved"]==1) { echo "checked='checked'"; } ?> > อนุมัติ
-                        <input type="checkbox" <?php if($row["Approved"]==0) { echo "checked='checked'"; } ?> > ไม่อนุมัติ
+                        <input type="checkbox" <?php if($row["Approved"]==1 || $row["Approved"]==3 || $row["Approved"]==4) { echo "checked='checked'"; } ?> > อนุมัติ
+                        <input type="checkbox" <?php if($row["Approved"]==2) { echo "checked='checked'"; } ?> > ไม่อนุมัติ
                     </td>
+                </tr>
+                <tr>
+                    <td>ผู้รับผิดชอบ</td>
                 </tr>
                 <tr>                     
                     <td><?=$row["toname"]?></td>
@@ -76,6 +79,7 @@ table{
                 <tr>
                     <td>(<?=$row["Firstname"]?> <?=$row["Lastname"]?>)</td>
                 </tr>
+               
             </table>
             
         </td>

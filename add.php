@@ -49,17 +49,14 @@ header('Content-Type: text/html; charset=utf-8');
 <body>
     <div class="container">
     <h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span> เพิ่มเอกสาร</h1>
-    <?php echo $objResult["name"];?>
+    <?php echo $objResult["name"];?><hr>
     <form id="new_topic" name="new_topic" method="post" action="saveadd.php" enctype="multipart/form-data">
     
         <div class="form-group">
-            <label>ชื่อ</label>
-            <input value=" <?php echo $objResult["name"];?>" type="text" class="form-control" name="Firstname" id="Firstname" placeholder="<?php echo $objResult["name"];?>">
+            <label>ชื่อ - สกุล</label>
+            <input value="<?php echo $objResult["name"];?>" type="text" class="form-control" name="Firstname" id="Firstname" placeholder="<?php echo $objResult["name"];?>" readonly>
         </div>
-        <div class="form-group">
-            <label>นามสกุล</label>
-            <input value=" <?php echo $objResult["lastname"];?>" type="text" class="form-control" name="Lastname" id="Lastname" placeholder="<?php echo $objResult["lastname"];?>">
-        </div>
+ 
         <div class="form-group">
             <label>เลขหนังสือ</label>
             <input  type="text" class="form-control" name="docname" id="docname" placeholder="เลขหนังสือ">
@@ -84,7 +81,7 @@ header('Content-Type: text/html; charset=utf-8');
 
         <!-- <input type="submit" name="Submit" value="บันทึกข้อมูล" class='glyphicon glyphicon-floppy-disk'> -->
             
-        <a href="myindex.php" class="btn btn-default">
+        <a href="index.php" class="btn btn-default">
             <span class="glyphicon glyphicon-home" aria-hidden="true"></span> หน้าหลัก
         </a>
       

@@ -4,16 +4,17 @@
 
     if(isset($_POST["btnSubmit"])){
         $Firstname = $_POST["Firstname"];
-        $Lastname = $_POST["Lastname"];
+        
         $Signatue = $_POST["sign"];
         $Comment = $_POST["Comment"];
-        $Approved = 0;
+        $Approved = $_POST['Approved'];
+        // $Approved = 0;
         $Filename = $_POST["Filename"];
         $toname = $_POST["toname"];
-        if (isset($_POST['Approved'])) {
-            $Approved = 1;
-        }
-        $sql = "UPDATE Student SET Firstname = '$Firstname', Lastname='$Lastname', 
+        // if (isset($_POST['Approved'])) {
+        //     $Approved = 1;
+        // }
+        $sql = "UPDATE form SET Firstname = '$Firstname', 
                 Signature = '$Signatue', 
                 Comment='$Comment',
                 Approved=$Approved,
@@ -21,9 +22,13 @@
                 Filename = '$Filename'
                 WHERE Id = $Id ";
         $conn->query($sql);
+        echo "<script type='text/javascript'>";
+	echo "alert('บันทึกข้อมูล!!!');";
+	echo "window.location = 'index.php'; ";
+	echo "</script>";
     }
 
-    $sql = "SELECT * FROM Student WHERE Id = $Id ";
+    $sql = "SELECT * FROM form WHERE Id = $Id ";
     $result = $conn->query($sql);
     $row = mysqli_fetch_assoc($result);
 ?>
@@ -54,42 +59,65 @@
     <h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span> แก้ไขข้อมูล</h1>
     <form method="post" action="edit.php?id=<?=$Id?>">
         <div class="form-group">
-            <label>ชื่อ</label>
-            <input value="<?=$row["Firstname"]?>" type="text" class="form-control" name="Firstname" id="Firstname" placeholder="Firstname">
+            <label>ชื่อ - สกุล</label>
+            <input value="<?=$row["Firstname"]?>" type="text" class="form-control" name="Firstname" id="Firstname" placeholder="Firstname" readonly>
         </div>
-        <div class="form-group">
-            <label>นามสกุล</label>
-            <input value="<?=$row["Lastname"]?>" type="text" class="form-control" name="Lastname" id="Lastname" placeholder="Lastname">
-        </div>
+  
         <div class="form-group">
             <label>เอกสาร</label>
             <input value="<?=$row["Filename"]?>" type="hidden" class="form-control" name="Filename" id="Filename" placeholder="Filename">
             <a href="documents/<?php echo $row["Filename"]; ?>" target="_blank"><?php echo $row["Filename"];?></a>
         </div>
-        <div class="checkbox">
+        <!-- <div class="checkbox">
             <label>
                 <input value="1" <?php if($row["Approved"]==1) { echo "checked='checked'"; } ?> type="checkbox" name="Approved" id="Approved"> อนุมัติ
                 
             </label>
             <label> <input value="2" <?php if($row["Approved"]==2) { echo "checked='checked'"; } ?> type="checkbox" name="Approved" id="Approved"> ไม่อนุมัติ</label>
+          
+        </div> -->
+        <div class="selectbox">
+            <label>การอนุมัติ : </label>
+                <select name="Approved" id="Approved" require>
+                <option value="">Select</option>                
+                <option value="1">อนุมัติ</option>
+                <option value="2">ไม่อนุมัติ</option>           
+                </select>
         </div>
         <div class="form-group">
             <label>มอบหมาย</label>
-           
+            <!-- test -->
+            
             <select class="form-control" name="toname">
+			<option value=""><-- รายชื่อ --></option>
+			<?php
+            require 'connection_database.php';
+			$strSQL = "SELECT * FROM member ORDER BY UserID ASC";
+			$objQuery = mysqli_query($conn,$strSQL);
+			while($objResuut = mysqli_fetch_array($objQuery))
+			{
+			?>
+			<option value="<?php echo $objResuut["name"];?>"><?php echo $objResuut["name"];?></option>
+			<?php
+			}
+			?>
+		  </select>
+            <!-- test -->
+            <!-- <select class="form-control" name="toname">
             <option value="อาจารย์ ดร. วรศักดิ์ เรืองศิรรักษ์">อาจารย์ ดร. วรศักดิ์ เรืองศิรรักษ์</option>           
-            </select>                                        
+            </select>                                         -->
                                    
         </div>
         <div class="form-group">
             <label>ความเห็น</label>
             <input value="<?=$row["Comment"]?>" type="text" class="form-control" name="Comment" id="Comment" placeholder="Comment">
+           
         </div>
         <canvas id="signature-pad" class="signature-pad" width="300px" height="200px"></canvas><br/>
         
         <input type="hidden" name="sign" id="sign">
      
-        <button type="submit" class="btn btn-primary" id="btnSubmit" name="btnSubmit">
+        <button type="submit" class="btn btn-primary" id="btnSubmit" name="btnSubmit" >
             <span class="glyphicon glyphicon-floppy-disk"></span>
             บันทึกข้อมูล
         </button>
@@ -110,6 +138,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+
     <script>
     $(document).ready(function() {
         var signaturePad = new SignaturePad(document.getElementById('signature-pad'));

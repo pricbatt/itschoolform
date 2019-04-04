@@ -1,8 +1,4 @@
 <?php
-    require 'connection_database.php';
-    $sql = "SELECT * FROM form ORDER BY id DESC ";
-    $result = $conn->query($sql);
-?><?php
 header('Content-Type: text/html; charset=utf-8');
 
   session_start();
@@ -11,11 +7,11 @@ header('Content-Type: text/html; charset=utf-8');
     header('Location: index.php');
    // header("Refresh:0; url=index.php");
     exit();}
-  if($_SESSION["Status"] != "0")
-        {
-        header("location:user_index.php");
-          exit();
-        }
+  // }if($_SESSION["Status"] == "1")
+  //       {
+  //       header("location:welcome1.php");
+  //         exit();
+  //       }
        
 
 
@@ -27,6 +23,11 @@ header('Content-Type: text/html; charset=utf-8');
   $objQuery = mysqli_query($conn,$strSQL);
   $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
   
+?>
+<?php
+    require 'connection_database.php';
+    $sql = "SELECT * FROM form where Firstname = '".$objResult["name"]."'  or Approved = '1' AND toname  = '".$objResult["name"]."' or Approved = '3' AND toname  = '".$objResult["name"]."' ORDER BY id DESC ";
+    $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +68,7 @@ header('Content-Type: text/html; charset=utf-8');
                         <th>ชื่อผู้รับผิดชอบ</th>
                         <th>วันที่</th>
                         <th>สถานะ</th>
-                        <th style="text-align: center;">อนุมัติ
+                        <th style="text-align: center;">รายละเอียด
                             <!-- <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> เพิ่มข้อมูลใหม่</button> -->
                         </th>
                         <th>View</th>
@@ -84,7 +85,7 @@ header('Content-Type: text/html; charset=utf-8');
                         <td><?=$index?></td>
                         <td><?=$row["docname"]?></td>
                         <td><?=$row["topic"]?></td>
-                        <td><?=$row["Firstname"]?></td> 
+                        <td><?=$row["Firstname"]?></td>
                         <td><?=$row["toname"]?></td>
                         <th><?=$row["created"]?></th>
                         <?php
@@ -108,8 +109,8 @@ header('Content-Type: text/html; charset=utf-8');
                      ?>
                       
                         <td style="text-align: center;">
-                            <a href="edit.php?id=<?=$row["Id"]?>" class="btn btn-primary">
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> อนุมัติ
+                            <a href="edit_user.php?id=<?=$row["Id"]?>" class="btn btn-primary">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> รายละเอียด
                             </a>
                             <!-- <a onclick="return confirm('คุณต้องการลบข้อมูล <?=$row["Firstname"]?> <?=$row["Lastname"]?> ใช่หรือไม่?');" href="index.php?id=<?=$row["Id"]?>&mode=delete" class="btn btn-danger">
                                 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> ลบข้อมูล
@@ -136,5 +137,6 @@ $('#dtBasicExample').DataTable({
 $('.dataTables_length').addClass('bs-select');
 });
     </script>
+
 </body>
 </html>

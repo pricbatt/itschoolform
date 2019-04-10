@@ -50,7 +50,8 @@ header('Content-Type: text/html; charset=utf-8');
 <div class="container">
         <h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span> เอกสารรอการจ่ายงานนะจ๊ะ</h1><?php echo $objResult["name"];?> : <a href="logout.php"> Logout</a><hr>
         <div><a href="add.php" class="btn btn-danger"><span class="glyphicon glyphicon-save-file"></span>
-        เพิ่มข้อมูลใหม่</a></div><br>
+        เพิ่มข้อมูลใหม่</a>
+        </div><br>
 <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%">
         <colgroup>
                     <col class="col-xs-1">
@@ -72,6 +73,7 @@ header('Content-Type: text/html; charset=utf-8');
                         </th>
                         <th>รายละเอียด</th>
                         <th>View</th>
+                        <th>เอกสารแนบ</th>
                         <th>ลบ</th>
                     </tr>
                 </thead>
@@ -123,6 +125,12 @@ header('Content-Type: text/html; charset=utf-8');
                            
                         </td>
                         <td><a href="preview.php?id=<?=$row["Id"]?>" target="_blank" class="btn btn-primary">PDF</a></td>
+                        <td  style="text-align: center;">
+                        <a href="doc/<?php echo $row["file"]; ?>" target="_blank" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-book" aria-hidden="true"></span> เอกสารแนบ
+                        </a>
+                        </td>
+                        
                         <td><a href="delete.php?id=<?=$row["Id"]?>" onClick="return confirm('คุณต้องการที่จะลบข้อมูลนี้หรือไม่ ?');" class='btn btn-danger' role='button'">ลบ</a></td>
                     </tr>
                     <?php

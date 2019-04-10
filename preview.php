@@ -47,6 +47,12 @@ table{
 </style>
 <table style="width:70%;" id="sign">
     <tr>
+<?php
+$file1= 'documents/C7.pdf';
+
+?>
+<!-- <td><iframe id="iframepdf" src="documents/<?=$row["Filename"]?>" width="100%" style="height:100%"></iframe></td> -->
+
         <td><img src="documents/<?=$row["Filename"]?>" /></td>
     </tr>
 </table>

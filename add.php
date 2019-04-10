@@ -80,8 +80,12 @@ header('Content-Type: text/html; charset=utf-8');
             <input  type="text" class="form-control" name="topic" id="topic" placeholder="เรื่อง">
         </div>
         <div class="form-group">
-            <label>เอกสาร</label>
+            <label>บันทึกข้อความ</label>
             <input type="file" name="filUpload">
+        </div>
+        <div class="form-group">
+            <label>ไฟล์แนบ</label>
+            <input type="file" name="file">
         </div>
         <textarea style="display:none;"type="hidden" name="id" cols="50" rows="5 placeholder="Enter ..."><?php echo $objResult['UserID'];?></textarea></td>
        

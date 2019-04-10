@@ -64,9 +64,14 @@
         </div>
   
         <div class="form-group">
-            <label>เอกสาร</label>
+            <label>บันทึกข้อความ</label>
             <input value="<?=$row["Filename"]?>" type="hidden" class="form-control" name="Filename" id="Filename" placeholder="Filename">
             <a href="documents/<?php echo $row["Filename"]; ?>" target="_blank"><?php echo $row["Filename"];?></a>
+        </div>
+        <div class="form-group">
+            <label>เอกสารแนบ</label>
+            <input value="<?=$row["file"]?>" type="hidden" class="form-control" name="file" id="file" placeholder="file">
+            <a href="doc/<?php echo $row["file"]; ?>" target="_blank"><?php echo $row["file"];?></a>
         </div>
         <!-- <div class="checkbox">
             <label>

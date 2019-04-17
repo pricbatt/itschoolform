@@ -70,7 +70,7 @@ padding-top:0px;
   <div class="top-right"><p>สำนักวิชาเทคโนโลยีสารสนเทศ<br>เลขที่รับหนังสือ : <?=$row["docname"]?> <br>วันที่ : <?=$row["created"]?></p></div>
 
         <?php if($row["stamp"] == '1') : ?>
-        <div class="bottom-right" style="position: absolute;padding-top:600px;padding-left:500px;">
+        <div class="bottom-right" style="position: absolute;padding-top:630px;padding-left:500px;">
             <p style="background-color:white;">คำสั่ง / ความเห็น <br>
             <input type="checkbox" <?php if($row["Approved"]==1 || $row["Approved"]==3 || $row["Approved"]==4) { echo "checked='checked'"; } ?> > อนุมัติ
             <input type="checkbox" <?php if($row["Approved"]==2) { echo "checked='checked'"; } ?> > ไม่อนุมัติ <br>
@@ -83,7 +83,7 @@ padding-top:0px;
         
         </div>
         <?php elseif($row["stamp"] == '2') : ?>
-        <div class="bottom-right" style="padding-top:700px;padding-left:-600px;">
+        <div class="bottom-right" style="padding-top:630px;padding-left:-600px;">
             <p style="background-color:white;">คำสั่ง / ความเห็น <br>
             <input type="checkbox" <?php if($row["Approved"]==1 || $row["Approved"]==3 || $row["Approved"]==4) { echo "checked='checked'"; } ?> > อนุมัติ
             <input type="checkbox" <?php if($row["Approved"]==2) { echo "checked='checked'"; } ?> > ไม่อนุมัติ <br>

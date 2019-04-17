@@ -81,6 +81,7 @@ header('Content-Type: text/html; charset=utf-8');
         </div>
         <div class="form-group">
             <label>บันทึกข้อความ</label>
+            
             <input type="file" name="filUpload">
         </div>
       

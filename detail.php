@@ -67,8 +67,8 @@
            
         </div>
         <div class="form-group">
-            <label>บันทึกข้อความ : </label>
-            <a href="preview.php?id=<?=$row["Id"]?>" target="_blank">รายละเอียด</a>
+            <label>บันทึกข้อความ : </label>           
+            <a href="preview.php?id=<?=$row["Id"]?>" target="_blank" >รายละเอียด</a>
         </div>
         <div class="form-group">
             <label>เอกสารแนบ : </label>
@@ -103,7 +103,7 @@
 
                                 elseif($row["Approved"] == '1'){
 
-                                    echo "<label>เกษียณเอกสารแล้ว</label>";}
+                                    echo "<label>เกษียนเอกสารแล้ว</label>";}
                                 elseif($row["Approved"] == '2'){
 
                                     echo "<label>ไม่อนุมัติ</label>";}

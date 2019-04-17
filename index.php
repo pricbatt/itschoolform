@@ -76,7 +76,7 @@ header('Content-Type: text/html; charset=utf-8');
                             <!-- <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> เพิ่มข้อมูลใหม่</button> -->
                         </th>
                         <th>รายละเอียด</th>
-                        <th>View</th>
+                        <th>เกษียน</th>
                         <th>เอกสารแนบ</th>
                         <th>ลบ</th>
                     </tr>
@@ -128,7 +128,7 @@ header('Content-Type: text/html; charset=utf-8');
                             </a>
                            
                         </td>
-                        <td><a href="preview.php?id=<?=$row["Id"]?>" target="_blank" class="btn btn-primary">PDF</a></td>
+                        <td><a href="preview.php?id=<?=$row["Id"]?>" target="_blank" class="btn btn-primary">เกษียน</a></td>
                     
                         <td  style="text-align: center;">
                         <a href="doc/<?php echo $row["file"]; ?>" target="_blank" class="btn btn-primary">

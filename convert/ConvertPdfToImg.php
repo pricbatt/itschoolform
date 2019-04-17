@@ -13,7 +13,16 @@ if (move_uploaded_file($_FILES['templateDoc']["tmp_name"], $pdfAbsolutePath)) {
   for ($i = 0; $i < $num_pages; $i++) {
       $img->setIteratorIndex($i);
       $img->setImageFormat('jpeg');
-      $img->writeImage(__DIR__."/save/img/".($i+1).'-'.rand().'.jpg');
+      ?>
+      <?php
+    
+      if (!file_exists('C:/exportPDF')) {
+        mkdir('C:/exportPDF', 0777, true);
+    }
+      ?>
+      <?php
+  $img->writeImage("C:/exportPDF/".($i+1).'-'.rand().'.jpg');
+      // $img->writeImage(__DIR__."/save/img/".($i+1).'-'.rand().'.jpg');
   }
   
   $img->destroy();

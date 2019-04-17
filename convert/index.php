@@ -1,15 +1,21 @@
 <html>
-
+้<head>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/login1.css">
+</head>
   <body>
 
     <form action="ConvertPdfToImg.php" enctype="multipart/form-data" method="post" name="f1">
 
-      <input id="templateDoc" name="templateDoc" type="file" />
+     <div> <input id="templateDoc" name="templateDoc" type="file" class="btn btn-success"></div><br>
 
-      <input type="submit" />
-
+      <!-- <input type="submit" /> -->
+      <button type="submit" class="btn btn-primary" id="Submit" name="Submit">แปลงไฟล์</button>
+      <a href="javascript:history.back()" class="btn btn-danger">
+            <span class="glyphicon glyphicon-home" aria-hidden="true"></span> หน้าหลัก
+        </a>
     </form>
-
+    
   </body>
 
 </html>

@@ -17,7 +17,7 @@
         $sql = "UPDATE form SET Firstname = '$Firstname', 
                 Signature = '$Signatue', 
                 Comment='$Comment',
-                Approved=$Approved,
+                Approved='$Approved',
                 toname='$toname',
                 Filename = '$Filename'
                 WHERE Id = $Id ";

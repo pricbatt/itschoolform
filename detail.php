@@ -6,16 +6,16 @@
         
         
       
-        $answer = $_POST["answer"];
-        $Approved = $_POST['Approved'];
+       
+        $stamp = $_POST["stamp"];
         // $Approved = 0;
         
        
         // if (isset($_POST['Approved'])) {
         //     $Approved = 1;
         // }
-        $sql = "UPDATE form SET answer='$answer',
-                Approved=$Approved            
+        $sql = "UPDATE form SET
+                stamp='$stamp'
                 WHERE Id = $Id ";
         $conn->query($sql);
        
@@ -55,7 +55,7 @@
     <div class="container">
     <h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span> รายละเอียด</h1><hr>
     
-        <form method="post" action="edit_user.php?id=<?=$Id?>">
+        <form method="post" action="detail.php?id=<?=$Id?>">
         <div class="form-group">
             <label>ชื่อผู้สร้างเอกสาร : </label>
             <label><?=$row["Firstname"]?></label>
@@ -82,6 +82,19 @@
             <label> <input value="2" <?php if($row["Approved"]==2) { echo "checked='checked'"; } ?> type="checkbox" name="Approved" id="Approved"> ไม่อนุมัติ</label>
           
         </div> -->
+
+        <div class="form-group">
+        <label>ตำแหน่งที่ประทับตรา</label>
+     
+            
+     <select class="form-control" name="stamp">
+     <option value=""><-- ตำแหน่งที่ประทับตรา --></option>
+     <option value="1">ขวาล่าง</option>
+     <option value="2">ซ้ายล่าง</option>
+     
+   </select>
+ 
+        </div>
         <div class="form-group">
             <label>การตอบรับ : </label>
             <?php

@@ -83,12 +83,24 @@ header('Content-Type: text/html; charset=utf-8');
             <label>บันทึกข้อความ</label>
             <input type="file" name="filUpload">
         </div>
+      
         <div class="form-group">
             <label>ไฟล์แนบ</label>
             <input type="file" name="file">
         </div>
-        <textarea style="display:none;"type="hidden" name="id" cols="50" rows="5 placeholder="Enter ..."><?php echo $objResult['UserID'];?></textarea></td>
-       
+        <div class="form-group">
+            <label>ตำแหน่งที่ประทับตรา</label>
+     
+            
+            <select class="form-control" name="stamp">
+			<option value=""><-- ตำแหน่งที่ประทับตรา --></option>
+			<option value="1">ขวาล่าง</option>
+            <option value="2">ซ้ายล่าง</option>
+            
+		  </select>
+ 
+        </div>
+        <textarea style="display:none;"type="hidden" name="id" cols="50" rows="5 placeholder="Enter ..."><?php echo $objResult['UserID'];?></textarea></td>      
         
      
     

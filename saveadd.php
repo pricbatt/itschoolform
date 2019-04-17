@@ -48,9 +48,9 @@ require 'connection_database.php';
         $pdf=trim($_FILES["filUpload"]["name"]);
         $file=trim($_FILES["file"]["name"]);
         $created = date('Y-m-d H:i:s');
-
-$sql = "INSERT INTO form (Firstname,Filename,file,docname,topic,created,uid,type) VALUES ";
-$sql .= "('{$name}','{$pdf}','{$file}','{$docname}','{$topic}','{$created}','{$id}','{$type}')";
+        $stamp = $_POST["stamp"];
+$sql = "INSERT INTO form (Firstname,Filename,file,docname,topic,created,uid,type,stamp) VALUES ";
+$sql .= "('{$name}','{$pdf}','{$file}','{$docname}','{$topic}','{$created}','{$id}','{$type}','{$stamp}')";
 
 $query = mysqli_query($conn,$sql);
 

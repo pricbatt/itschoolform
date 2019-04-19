@@ -1,7 +1,9 @@
 <?php 
-
-$pdfAbsolutePath = __DIR__."/save/output_short.pdf";
-
+if (!file_exists('C:/output_pdf')) {
+  mkdir('C:/output_pdf', 0777, true);
+}
+// $pdfAbsolutePath = __DIR__."/output_short.pdf";
+$pdfAbsolutePath = "C:/output_pdf/output_short.pdf";
 if (move_uploaded_file($_FILES['templateDoc']["tmp_name"], $pdfAbsolutePath)) {
 
   $img = new \Imagick();

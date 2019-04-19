@@ -17,7 +17,7 @@
 			<section class="col-12 col-sm-6 col-md-3">
 			
 					<form class="form-container" name="form1" method="post" action="check_login.php">
-							<h4 class="text-center font-weight-bold">Webboard System</h4>
+							<h4 class="text-center font-weight-bold">e-Doc System</h4>
 							<div class="form-group">								
 								<input type="text" class="form-control" id="txtUsername" aria-describedby="txtUsername" name="txtUsername" placeholder="Username">
 							</div>
